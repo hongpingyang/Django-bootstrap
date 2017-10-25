@@ -1,0 +1,73 @@
+.fonttop {
+  padding: 0px 5px;
+}
+
+.hborder { 
+    font-weight:normal;
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+}
+
+.yj {
+	-moz-border-radius: 50px;
+	-webkit-border-radius:50px;
+	 border-radius:50px;
+}
+
+#ABtitle>a,#ABtitle>a:link,#ABtitle>a:visited,#ABtitle>a:active {
+   color: #1E90FF;
+   text-decoration: none;
+}
+#ABtitle>a:hover {
+   color: #1E00FF;
+   text-decoration: none;
+}
+
+#Alist>a,#Alist>a:link,#Alist>a:visited,#Alist>a:hover,#Alist>a:active {
+   color: #000000;
+   text-decoration: none;
+}
+
+#AComment>a,#AComment>a:link,#AComment>a:visited,#AComment>a:active {
+   color:#32CD32;
+   text-decoration: none;
+}
+
+#AComment>a:hover {
+   color: #000000;
+   text-decoration: none;
+}
+
+#AClikenum>a,#AClikenum>a:link,#AClikenum>a:visited,#AClikenum>a:active {
+   color:#32CD32;
+   text-decoration: none;
+}
+
+#AClikenum>a:hover {
+   color: #000000;
+   text-decoration: none;
+}
+
+
+
+
+#ACtitle>a,#ACtitle>a:link,#ACtitle>a:visited,#ACtitle>a:active {
+   color:#000000;
+   text-decoration: none;
+}
+
+#ACtitle>a:hover {
+   color:#1E90FF;
+   text-decoration: none;
+}
+
+#Alikenums>a,#Alikenums>a:link,#Alikenums>a:visited,#Alikenums>a:active {
+   color:#000000;
+   text-decoration: none;
+}
+
+#Alikenums>a:hover {
+   color:#1E90FF;
+   text-decoration: none;
+}
+

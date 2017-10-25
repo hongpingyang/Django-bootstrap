@@ -1,0 +1,76 @@
+{% extends "blog/base1.html" %}
+{% load custom_markdown  %}
+
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+    <h3 class="hborder" style="padding-left: 10px;">
+     {{ post.title }}
+     <small>{% for tag in post.tags.all %}
+     <span class="label label-success">{{ tag.name}}</span>
+     {% endfor %}
+     </small>
+    </h3>
+
+    <p class="hborder">
+        <span class="glyphicon glyphicon-user "></span><span>&nbsp;&nbsp;{{ post.author }}&nbsp;&nbsp;</span>                     
+        <span class="glyphicon glyphicon-time"></span><span>&nbsp;&nbsp;{{ post.publish|date:"Y-m-d H:i:s" }}&nbsp;&nbsp;</span>
+        <span id="ACtitle"><a href="#totalcomment" class="glyphicon glyphicon-comment"></a>&nbsp;&nbsp;{{post.comments.count}}条评论&nbsp;&nbsp;</span>
+        <span id="Alikenums"><a class="glyphicon glyphicon-heart" onclick="likes_topic();"></a></span><span>&nbsp;&nbsp;<span id="likenum">{{post.likenum}}</span></span>
+    </p>
+
+    {{ post.body|custom_markdown }}
+    </div>
+    
+    
+    <div class="row">
+    {% with comments.count as total_comments %}
+        <h4 class="hborder"><strong>共{{ total_comments }}条评论</strong></h4>
+    {% endwith %}
+    
+    {% for comment in comments %}
+        <div class="comment hborder">
+            <p class="info"><strong>{{ comment.name }}</strong>评论于{{ comment.created|date:"Y-m-d H:i:s"}}</p>
+            {{ comment.body|linebreaks }}
+        </div>
+    {% empty %}
+        <div class="col-md-9">没有找到数据</div>
+    {% endfor %}
+    </div>
+    
+    <div class="row">
+    {% if new_comment %}
+        <h4>Your comment has been added.</h4>
+    {% else %}
+        <h4 class="hborder"><strong>发表评论</strong></h4>
+        <!--form action="." method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Add comment"></p>
+        </form-->
+        <form role="form" action="." method="post"">
+            {% for field in comment_form %}
+             <div class="form-group row">
+                <label class="col-md-1">{{ field.label }}</label>
+             <div class="col-md-9">
+             {{ field }}
+             </div>
+             </div>
+            {% endfor%}
+
+            <!--div class="form-group fieldWrapper">
+                <label for="id_name">名称</label>
+                <input type="text" class="form-control" id="name" placeholder="请输入名称">
+            </div>
+            <div class="form-group">
+               <label for="name">文本框</label>
+               <textarea class="form-control" rows="3" id="body" placeholder="文明社会,理性评论" ></textarea>
+            </div-->
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-1">提交</button>
+        </form>
+    {%  endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<div class="text-center">    
+    <nav aria-label="...">
+     <ul class="pager">
+       {% if page.has_previous %}
+       <li><a href="?page={{ page.previous_page_number }}">上一页</a></li>
+       {% else %}
+       <li class="disabled"><a href="#">上一页</a></li>
+       {% endif %}
+
+       {% if page.has_next %}
+       <li><a href="?page={{ page.next_page_number }}">下一页</a></li>
+       {% else %}
+       <li class="disabled"><a href="#">下一页</a></li>
+       {% endif %}
+    </ul>
+   </nav>
+</div>
